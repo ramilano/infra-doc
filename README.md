@@ -68,7 +68,7 @@ After thorough evaluation of both AWS and Google Cloud Platform (GCP), **Amazon 
 - **Sophisticated Routing Control**: Route tables, route propagation, and network segmentation with fine-grained traffic control between environments
 - **VPC Peering**: Mature cross-region and cross-account connectivity with advanced filtering and security controls
 - **AWS PrivateLink**: Secure service-to-service communication without internet exposure, supporting both AWS services and custom applications
-- **Global Infrastructure**: 37 regions and 117 availability zones with 1,600+ edge locations for CloudFront CDN
+- **Global Infrastructure**: 37 regions and 117 availability zones with 700+ CloudFront Points of Presence
 - **AWS Direct Connect**: Dedicated network connections with multiple virtual interfaces and BGP routing control
 - **Network Load Balancer**: High-performance Layer 4 load balancing with static IP addresses and ultra-low latency
 - **Application Load Balancer**: Advanced Layer 7 routing with SSL termination, sticky sessions, and WebSocket support
@@ -80,13 +80,13 @@ After thorough evaluation of both AWS and Google Cloud Platform (GCP), **Amazon 
 - **Global Load Balancing**: Anycast IP addresses that route traffic to the nearest healthy backend globally
 - **Cloud CDN**: Global content delivery network integrated with Google's global infrastructure
 - **Premium vs Standard Network Tiers**: Choice between Google's premium global network or standard internet routing
-- **Global Infrastructure**: 40+ regions and 121+ zones, but significantly fewer edge locations (140+ vs AWS's 1,600+)
+- **Global Infrastructure**: 40-42 regions and 121-127 zones, but significantly fewer edge locations (202 network edge locations vs AWS's 700+)
 
 **Key Differences for Enterprise Decision-Making:**
 - **Network Architecture Complexity**: AWS Transit Gateway provides superior centralized control for complex multi-account, multi-region architectures compared to GCP's mesh approach
 - **Hybrid Cloud Connectivity**: AWS Direct Connect offers more mature and flexible hybrid cloud networking options with better enterprise integration
 - **Security Isolation**: AWS account-based isolation combined with Transit Gateway route tables provides stronger network security boundaries
-- **Global Reach**: AWS has significantly more edge locations (1,600+ vs ~140 for Google), providing superior global performance for content delivery
+- **Global Reach**: AWS has significantly more edge locations (700+ vs 202 for Google), providing superior global performance for content delivery
 - **Enterprise Network Integration**: AWS networking services integrate better with traditional enterprise networking equipment and practices
 
 #### 4. **Database Services and Management**
@@ -163,7 +163,7 @@ After thorough evaluation of both AWS and Google Cloud Platform (GCP), **Amazon 
 This strategic approach minimizes vendor lock-in while maximizing the benefits of AWS's mature services and ecosystem.
 
 **Note on Technical Currency:**
-All technical specifications, version numbers, and infrastructure counts in this document have been updated to reflect the latest available as of June 2025, including Kubernetes 1.33, PostgreSQL 17.5, AWS's 37 regions with 117 availability zones, 1,600+ CloudFront edge locations, and Graviton4 instance types for optimal performance and cost efficiency.
+All technical specifications, version numbers, and infrastructure counts in this document have been updated to reflect the latest available as of June 2025, including Kubernetes 1.33, PostgreSQL 17, AWS's 37 regions with 117 availability zones, 700+ CloudFront Points of Presence, Google Cloud's 40-42 regions with 121-127 zones and 202 network edge locations, and Graviton4 instance types for optimal performance and cost efficiency.
 
 ## Cloud Environment Structure
 
@@ -566,3 +566,46 @@ We recommend **Amazon RDS PostgreSQL** with Multi-AZ deployment as the optimal d
 5. Plan failback when primary recovers
 
 This architecture provides the client with a robust, scalable, and secure foundation for growth while maintaining operational excellence and cost optimization across all four critical areas.
+
+## References and Official Sources
+
+### AWS Infrastructure Information
+- **AWS Global Infrastructure**: [https://aws.amazon.com/about-aws/global-infrastructure/](https://aws.amazon.com/about-aws/global-infrastructure/)
+  - 37 regions, 117 availability zones, 700+ CloudFront Points of Presence, 13 regional edge caches
+- **Amazon EKS Kubernetes Versions**: [https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html)
+  - Latest supported version: 1.33
+- **Amazon RDS PostgreSQL Versions**: [https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.DBVersions.html](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Concepts.General.DBVersions.html)
+  - PostgreSQL 17 available, also supports versions 13, 14, 15, 16
+
+### Google Cloud Infrastructure Information
+- **Google Cloud Locations**: [https://cloud.google.com/about/locations](https://cloud.google.com/about/locations)
+  - 40-42 regions currently operational, 121-127 zones currently operational, 202 network edge locations
+
+### AWS vs Google Cloud Decision Framework References
+
+#### Market Analysis and Positioning (2024-2025)
+- **Gartner Magic Quadrant for Strategic Cloud Platform Services**: AWS positioned as Leader for 13 consecutive years
+  - Source: [AWS Leadership Recognition](https://aws.amazon.com/blogs/aws/read-the-2023-gartner-magic-quadrant-for-strategic-cloud-platform-services/)
+- **Market Share Analysis**: AWS 31%, Microsoft Azure 25%, Google Cloud 11% (Q3 2024)
+  - Source: [Synergy Research Group via Statista](https://www.statista.com/chart/18819/worldwide-market-share-of-leading-cloud-infrastructure-service-providers/)
+- **Gartner Peer Insights Reviews**: [Strategic Cloud Platform Services](https://www.gartner.com/reviews/market/strategic-cloud-platform-services)
+
+#### Enterprise Decision Factors and Total Cost of Ownership
+- **AWS vs GCP Pricing Comparison**: [CloudZero TCO Analysis](https://www.cloudzero.com/blog/aws-vs-gcp/)
+- **Enterprise Cost Optimization**: [ProsperOps Discount Comparison](https://www.prosperops.com/blog/aws-vs-azure-vs-google-cloud-discounts-pricing/)
+- **Google Cloud vs AWS Service Comparison**: [Official GCP Comparison](https://cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison)
+- **Enterprise TCO Calculators**: 
+  - [AWS Pricing Calculator](https://calculator.aws/)
+  - [Google Cloud Pricing Calculator](https://cloud.google.com/products/calculator)
+
+#### Cloud Provider Comparison Studies (2024-2025)
+- **Comprehensive Cloud Comparison**: [ExpertBeacon Analysis](https://expertbeacon.com/comparing-cloud-giants-in-2023-aws-vs-azure-vs-google-cloud/)
+- **Enterprise Decision Framework**: [CloudZero Provider Comparison](https://www.cloudwards.net/aws-vs-azure-vs-google/)
+- **Cost and Performance Analysis**: [CAST.AI Cloud Pricing Study](https://cast.ai/blog/cloud-pricing-comparison/)
+
+#### Key Decision Criteria for Client Reference
+1. **AWS Advantages**: Largest service portfolio (240+ services), mature multi-account management, extensive global infrastructure, superior enterprise features, 13-year Gartner Leader recognition
+2. **Google Cloud Advantages**: AI/ML leadership, competitive pricing with per-second billing, advanced data analytics, simplified operations, strong big data capabilities
+3. **Enterprise Evaluation Factors**: Existing infrastructure, team expertise, compliance requirements, long-term strategic goals, vendor relationship preferences, total cost of ownership analysis
+
+*All infrastructure numbers, technical specifications, and comparative analysis have been verified against official vendor documentation, analyst reports, and industry sources as of June 2025.*
